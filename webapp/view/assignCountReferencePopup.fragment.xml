@@ -1,0 +1,70 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core">
+    <Dialog id="assignDialog" title="Assign Count Reference">
+        <content>
+            <Panel class="sapUiResponsiveContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Physical Inventory Items (1)" />
+                        <ToolbarSpacer />
+                        <Button ariaHasPopup="None" text="Assign" width="auto" />
+                        <Button ariaHasPopup="None" text="Clear" width="auto" />
+                        <Button ariaHasPopup="None" text="Show Details" width="auto" />
+                    </Toolbar>
+                </headerToolbar>
+                <Table id="inventoryItems" class="saUiResponsiveMargin" width="auto" items="{item>Items}">
+                    <columns>
+                        <Column>
+                            <Text text="PI Item" />
+                        </Column>
+                        <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true" width="auto">
+                            <Text text="Storage Bin" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="Product" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="Product Desc." />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Bin Empty" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="false">
+                            <Text text="Batch" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="Count Reference" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation" press="exit">
+                            <cells>
+                                <!-- <ObjectNumber number="Quantity" emphasized="false" />
+                                <ObjectIdentifier title="ProductName" /> -->
+                                <NumericContent value="1" width="auto" />
+
+                                <Text text="{item>StorgaeBin   
+                        }" width="auto" />
+
+                                <Text text="{item>Product   
+                        }" />
+
+                                <Text text="{item>ProductDesc    
+                        }" />
+                                <Text text="" />
+                                <Text text="{item>CountRef  
+                        }" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+
+        <beginButton>
+            <Button id="okBtn" text="Ok" press="exit" />
+        </beginButton>
+        <endButton>
+            <Button id="cancelBtn" text="Cancel" press="exit" />
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>

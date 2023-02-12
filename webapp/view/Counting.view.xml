@@ -1,0 +1,116 @@
+<mvc:View controllerName="myfirstapp.controller.Counting" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" class="bg-white">
+        <content>
+            <Panel accessibleRole="Form" backgroundDesign="Translucent" expandAnimation="true" expandable="false" expanded="false" height="auto" width="100%">
+                <content>
+                    <FormattedText htmlText="Physical Inventory Document: 6000000097" class="h5 mb-5" />
+                    <FormattedText htmlText="Warehouse Order: 2009044900" class="mb-1" />
+                    <FormattedText htmlText="Number of physical inventory items: 1" class="mb-1" />
+                    <FormattedText htmlText="Time Zone: CET" class="mb-5" />
+                </content>
+            </Panel>
+
+            <IconTabBar id="idIconTabBarNoIcons" expanded="true" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter text="General Information" key="info" class="">
+                        <VBox xmlns="sap.m" wrap="Wrap" renderType="Bare" class="border-bottom">
+                            <HBox xmlns="sap.m" wrap="Wrap" renderType="Bare" fitContainer="true" alignContent="Center" alignItems="Center">
+                                <Text text="Counter:" />
+                                <Text text="* " class="text-danger" />
+
+                                <Input class="" autocomplete="false" description="" width="30%" />
+                            </HBox>
+                            <HBox xmlns="sap.m" wrap="Wrap" renderType="Bare" alignContent="Center" alignItems="Center" class="mb-4">
+                                <Text text="Count Date and Time:" />
+                                <Text text="* " class="text-danger mb-1" />
+
+                                <DateTimePicker class="" width="30%" valueFormat="dd.MM.yyyy HH:mm:ss" displayFormat="dd.MM.yyyy HH:mm:ss" />
+                            </HBox>
+                        </VBox>
+
+                        <Title text="Count Physical Inventory Items" class="mt-4 mb-5" />
+                        <Panel class="sapUiResponsiveContentPadding">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title text="Total Rows of PI items (1)" />
+                                    <ToolbarSpacer />
+                                    <Button ariaHasPopup="None" text="Add HU" width="auto" />
+                                    <Button ariaHasPopup="None" text="Add Product" width="auto" />
+                                    <Button ariaHasPopup="None" text="Assign Count Reference" press="onOpenDialog" width="auto" />
+                                    <Button ariaHasPopup="None" enabled="false" text="Assign Serial Number Range" width="auto" />
+                                    <Button ariaHasPopup="None" enabled="false" text="Delete" width="auto" />
+                                    <Button activeIcon="" ariaHasPopup="None" enabled="true" icon="sap-icon://action-settings" iconDensityAware="true" iconFirst="true" text="" textDirection="Inherit" type="Default" width="" />
+                                </Toolbar>
+                            </headerToolbar>
+                            <Table id="PIItems" class="saUiResponsiveMargin" width="auto" items="{item>Items}">
+                                <columns>
+                                    <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true" width="auto">
+                                        <Text text="Storage Bin" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Text text="Bin Empty" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="false">
+                                        <Text text="Handling Unit" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="Product" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="Product Desc." />
+                                    </Column>
+                                    <Column hAlign="End" width="15%">
+                                        <Text text="Count Reference" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="Quantity" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="UoM" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="Checked" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem type="Navigation" press="onInit">
+                                        <cells>
+                                            <!-- <ObjectNumber number="Quantity" emphasized="false" />
+                                <ObjectIdentifier title="ProductName" /> -->
+                                            <Text text="{item>StorgaeBin   
+                        }" />
+                                            <CheckBox name="" text="{item>IsEmpty  
+                        }" />
+                                            <Text text="{
+                            path: 'item>HandlingUnit'   
+                        }" />
+
+                                            <Text text="{item>Product   
+                        }" />
+
+                                            <Text text="{item>ProductDesc    
+                        }" />
+                                            <Text text="{item>CountRef  
+                        }" />
+                                            <Text text="{item>Quantity 
+                        }" />
+
+                                            <Text text="{item>Quantity 
+                        }" />
+
+                                            <CheckBox name="" text="{item>UoM
+                        }" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </Panel>
+                    </IconTabFilter>
+                    <IconTabFilter text="Count Physical Inventory Items" key="Items">
+                        <Text text="Count Physical Inventory Items Tab " />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>
